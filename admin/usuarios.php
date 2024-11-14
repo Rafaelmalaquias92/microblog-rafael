@@ -1,5 +1,10 @@
 <?php 
 require "../includes/cabecalho-admin.php";
+require "../includes/funcoesusuarios.php";
+
+// Chamamos a função listarUsuarios e RECEBEMOS o array que ela gerou, guardando na variavel $usuarios
+$listaDeUsuarios = listarUsuarios($conexao);
+
 ?>
 
 
@@ -29,9 +34,9 @@ require "../includes/cabecalho-admin.php";
 				</thead>
 
 				<tbody>
-
+	<?php foreach($listaDeUsuarios as $usuario){ ?>
 					<tr>
-						<td> Nome... </td>
+						<td> <?=$usuario['nome']?> </td>
 						<td> E-mail... </td>
 						<td> Tipo... </td>
 						<td class="text-center">
@@ -46,7 +51,7 @@ require "../includes/cabecalho-admin.php";
 							</a>
 						</td>
 					</tr>
-
+<?php } ?>
 				</tbody>                
 			</table>
 	</div>
