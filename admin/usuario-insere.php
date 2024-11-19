@@ -1,6 +1,6 @@
 <?php 
 require "../includes/cabecalho-admin.php";
-require "../includes/funcoesusuarios.php";
+require "../includes/funcoes-usuarios.php";
 
 if(isset($_POST['inserir'])){
 	// Capturar os dados digitados
