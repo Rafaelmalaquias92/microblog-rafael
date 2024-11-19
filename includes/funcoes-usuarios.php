@@ -36,3 +36,16 @@ $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 // Extração dos dados de UMA PESSOA como ARRAY Associativo
 return mysqli_fetch_assoc($resultado);
 }
+
+function atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo){
+    $sql = "UPDATE usuarios SET
+    nome = '$nome',
+    email = '$email',
+    senha = '$senha',
+    tipo = '$tipo'
+    WHERE id = $id"; // NÃO ESQUEÇA NUNCA ESSA BAGAÇA!
+    
+// Execução e Verificação do comando SQL
+$resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    
+}
