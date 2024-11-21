@@ -2,6 +2,8 @@
 require "../includes/cabecalho-admin.php";
 require "../includes/funcoes-usuarios.php";
 
+verificarNivel();
+
 // Chamamos a função listarUsuarios e RECEBEMOS o array que ela gerou, guardando na variavel $usuarios
 $listaDeUsuarios = listarUsuarios($conexao);
 

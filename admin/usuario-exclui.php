@@ -1,7 +1,7 @@
 <?php
 require "../includes/funcoes-usuarios.php";
 verificarAcesso();
-
+verificarNivel();
 require "../includes/funcoes-usuarios.php";
 
 // Pegando o ID passado via URL
