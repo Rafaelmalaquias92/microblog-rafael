@@ -1,5 +1,8 @@
 <?php
 require "../includes/funcoes-usuarios.php";
+verificarAcesso();
+
+require "../includes/funcoes-usuarios.php";
 
 // Pegando o ID passado via URL
 $id = $_GET['id'];
