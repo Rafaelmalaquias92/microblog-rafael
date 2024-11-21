@@ -1,5 +1,5 @@
 <?php
-require "../includes/funcoes-usuarios.php"
+require "../includes/funcoes-usuarios.php";
 
 // Pegando o ID passado via URL
 $id = $_GET['id'];
