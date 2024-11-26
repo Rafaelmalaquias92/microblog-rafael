@@ -10,13 +10,27 @@ function inserirNoticia ($conexao, $titulo, $texto, $resumo, $nomeDaImagem, $usu
 }
 	
 
-
-
 // Usada em admin/noticias.php
-function lerNoticias($conexao){
-	
+function lerNoticias($conexao, $idUsuario, $tipoUsuario){
+
+   if ($tipoUsuario === 'admin'){
+   $sql = "SELECT 
+                noticias.id, noticias.titulo, 
+                noticias.data, usuarios.nome
+            FROM noticias JOIN usuarios
+            ON noticias.usuario_id = usuarios.id
+            ORDER BY data DESC";
+
+} else{
+    // Não é admin? Pode ver somente os dados dele/dela (EDITOR)
+    $sql = "SELECT id, titulo, data FROM noticias
+    WHERE usuario_id = $idUsuario
+    ORDER BY data DESC";
 }
 
+$resultado = executarQuery($conexao, $sql);
+return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+}
 
 // Usada em admin/noticia-atualiza.php
 function lerUmaNoticia($conexao){
