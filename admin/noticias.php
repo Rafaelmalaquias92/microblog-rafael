@@ -9,13 +9,13 @@ $tipoUsuario = $_SESSION['tipo'];
 // Chamando a função e pegando o array com lista de noticias
 $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 ?>
-<pre><?=var_dump($listaDeNoticias)?></pre>
+
 
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Notícias <span class="badge bg-dark">X</span>
+		Notícias <span class="badge bg-dark"><?=count($listaDeNoticias)?> </span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -37,11 +37,11 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 				</thead>
 
 				<tbody>
-
+					<?php foreach( $listaDeNoticias as $noticia ) { ?>
 					<tr>
-                        <td> Título da notícia... </td>
-                        <td> 21/12/2112 21:12 </td>
-                        <td> Autor da notícia... </td>
+                        <td> <?=$noticia['titulo']?> </td>
+                        <td> <?=formataData($noticia['data'])?> </td>
+                        <td> <?=$noticia['nome']?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="noticia-atualiza.php">
@@ -54,7 +54,7 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 							</a>
 						</td>
 					</tr>
-
+				<?php } ?>
 				</tbody>                
 			</table>
 	</div>
