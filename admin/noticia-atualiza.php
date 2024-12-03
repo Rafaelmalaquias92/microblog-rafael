@@ -2,48 +2,48 @@
 require "../includes/cabecalho-admin.php";
 require "../includes/funcoes-noticias.php";
 
-// Capturando o parâmetro id enviado via URL/LINK dinãmico
+// Capturando o parâmetro id enviado via URL/LINK dinâmico
 $idNoticia = $_GET['id'];
 
-// Capturando o id do usuario que esta logado
+// Capturando o id do usuário que está logado
 $idUsuario = $_SESSION['id'];
 
-// Capturando o tipo de usuario que esta logado
+// Capturando o tipo do usuário que está logado
 $tipoUsuario = $_SESSION['tipo'];
 
-// Chamando a função e carregando o array com os dados da noticia 
+// Chamando a função e carregando o array com os dados da notícia
 $dadosDaNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
+
 
 if(isset($_POST['atualizar'])){
     $titulo = $_POST['titulo'];
     $texto = $_POST['texto'];
     $resumo = $_POST['resumo'];
 
-    // Logica da imagem
+    /* Lógica para a imagem */
 
-    // Se o campo "imagem" estiver vazio, então significa que o usuario NÂO QUER MUDAR DE IMAGEM. Portanto, a imagem que já existe continuará (será mantida).
-    
+    /* Se o campo "imagem" estiver vazio, então significa que o usuário NÃO QUER MUDAR DE IMAGEM. Portanto, a imagem que já existe continuará (será mantida). */
     if(empty($_FILES['imagem']['name'])){
-        // Pegamos a imagem/referencia que ja tem e colocamos na variavel 
+        // Pegamos a imagem/referência que já tem e colocamos na variável
         $imagem = $_POST['imagem-existente'];
     } else {
-        // Senão, pegamos a imagem/referencia NOVA e colocamos na variavel
+        // Senão, pegamos a imagem/referência NOVA e colocamos na variável
         $imagem = $_FILES['imagem']['name'];
         
-        // Em seguida, enviamos o arquivo para o servidor
+        // E em seguida, enviamos o arquivo pro servidor
         upload($_FILES['imagem']);
     }
-    // Chamamos a função para atualizar (UPDATE)
-    atualizarNoticia($conexao, $titulo, $texto, $resumo, $imagem, $idNoticia, $idUsuario, $tipoUsuario);
+
+    // Chamamos a função para atualizar (update)
+    atualizarNoticia(
+        $conexao, $titulo, $texto, $resumo, $imagem, $idNoticia,
+        $idUsuario, $tipoUsuario
+    );
 
     // Voltamos pra página de noticias.php
     header("location:noticias.php");
 }
-
 ?>
-
-
-
 
 
 <div class="row">
@@ -57,7 +57,7 @@ if(isset($_POST['atualizar'])){
 
             <div class="mb-3">
                 <label class="form-label" for="titulo">Título:</label>
-                <input value="<?=$dadosDaNoticia['titulo']?>" class= "form-control" required type="text" id="titulo" name="titulo">
+                <input value="<?=$dadosDaNoticia['titulo']?>" class="form-control" required type="text" id="titulo" name="titulo">
             </div>
 
             <div class="mb-3">

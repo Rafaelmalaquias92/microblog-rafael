@@ -2,20 +2,26 @@
 
 ## Resumo
 
-- C: CRias/Inserir dados --->  INSERT
-- R: Ler dados           --->  SELECT
-- U: Atualizar dados     --->  UPDATE
-- D: Excluir dados       --->  DELETE
+- C: Criar/Inserir dados    -> INSERT
+- R: (R) Ler dados          -> SELECT
+- U: (U) Atualizar dados    -> UPDATE
+- D: (D) Excluir dados      -> DELETE
 
 ## Exemplos para tabela "usuarios"
 
 ### Inserindo usuarios
 
 INSERT INTO usuarios (nome, email, senha, tipo)
-VALUES ('Rafaelmalaquiassantos','rafaelmalaquiassantos@gmail','ATECUBANOS1234','editor');
+VALUES ('Tiago', 'tiago@gmail', '123senac', 'admin');
 
 INSERT INTO usuarios (nome, email, senha, tipo)
-VALUES ('Goku','kakaroto@gmail','BULMAS4F4D4','editor');
+VALUES ('Chapolin', 'chapolin@gmail', '456', 'editor');
+
+INSERT INTO usuarios (nome, email, senha, tipo)
+VALUES ('Didi Mocó', 'didi@msn', '000', 'editor');
+
+INSERT INTO usuarios (nome, email, senha, tipo)
+VALUES ('Naruto', 'naruto@gmail.com', '000', 'editor');
 
 ### Inserindo noticias
 
@@ -30,45 +36,54 @@ VALUES (
 
 INSERT INTO noticias (titulo, texto, resumo, imagem, usuario_id)
 VALUES (
-    'Eu vou li pegar',
-    'Tu vai ver só',
-    'pegou',
-    'surra.jpg',
-    2
-);
-
-INSERT INTO noticias (titulo, texto, resumo, imagem, usuario_id)
-VALUES (
-    'tira, tira que eu vou...',
-    'Problemas estomacais',
-    '💩',
-    'tira.jpg',
-    3
-);
-
-INSERT INTO noticias (titulo, texto, resumo, imagem, usuario_id)
-VALUES (
-    'Normal',
-    'lavar a louça que é bom nada ',
-    '🏳‍🌈',
-    'lavar.jpg',
+    'Corinthians classificado para a pré-libertadores',
+    'Ganhamos todos os jogos finais',
+    'Agora vai',
+    'corinthians.png',
     4
+);
+
+INSERT INTO noticias (titulo, texto, resumo, imagem, usuario_id)
+VALUES (
+    'Inteligência Artificial revolucionou o mundo',
+    'As IAs estão cada vez mais inseridas no nosso dia a dia',
+    'Há opções gratuitas',
+    'ia.jpg',
+    1
+);
+
+INSERT INTO noticias (titulo, texto, resumo, imagem, usuario_id)
+VALUES (
+    'Lançada nossa versão do Office 365',
+    'Agora há suporte nativo ao Copilot',
+    'Tarefas simplificadas...',
+    'office.jpg',
+    2
 );
 
 ## Leitura de dados da tabela "noticias"
 
 SELECT data, titulo FROM noticias;
 
+SELECT * FROM noticias;
+
+
 ## Leitura de dados da tabela "usuarios"
 
-SELECT nome, email, tipo FROM usuarios;  
-SELECT nome, email, tipo FROM usuarios WHERE tipo = 'editor';  
+SELECT nome, email, tipo FROM usuarios;
+
+SELECT nome, email, tipo FROM usuarios WHERE tipo = 'editor';
 
 ## Atualização de dados dos usuários
 
-UPDATE usuarios SET email = 'rafael@gmail.com'
+UPDATE usuarios SET email = 'tiago@gmail.com'
 WHERE id = 1;
 
 ## Excluindo dados da tabela "noticias"
 
 DELETE FROM noticias WHERE id = 1;
+
+
+
+
+

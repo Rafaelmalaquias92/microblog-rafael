@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `microblog_rafael`
+-- Banco de dados: `microblog_aula`
 --
 
 -- --------------------------------------------------------
@@ -42,9 +42,9 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`id`, `data`, `titulo`, `texto`, `resumo`, `imagem`, `usuario_id`) VALUES
-(2, '2024-11-12 16:38:32', 'Eu vou li pegar', 'Tu vai ver só', 'pegou', 'surra.jpg', 2),
-(4, '2024-11-12 16:42:09', 'tira, tira que eu vou...', 'Problemas estomacais', '💩', 'tira.jpg', 3),
-(5, '2024-11-12 16:46:37', 'Normal', 'lavar a louça que é bom nada ', '🏳‍🌈', 'lavar.jpg', 4);
+(2, '2024-11-12 16:37:13', 'Corinthians classificado para a pré-libertadores', 'Ganhamos todos os jogos finais', 'Agora vai', 'corinthians.png', 4),
+(3, '2024-11-12 16:38:37', 'Inteligência Artificial revolucionou o mundo', 'As IAs estão cada vez mais inseridas no nosso dia a dia', 'Há opções gratuitas', 'ia.jpg', 1),
+(4, '2024-11-12 16:39:38', 'Lançada nossa versão do Office 365', 'Agora há suporte nativo ao Copilot', 'Tarefas simplificadas...', 'office.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -65,10 +65,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'Rafael', 'rafael@gmail.com', 'ATECUBANOS', 'admin'),
-(2, 'Rafaelmalaquias', 'rafaelmalaquias@gmail', 'ATECUBANOS123', 'editor'),
-(3, 'Rafaelmalaquiassantos', 'rafaelmalaquiassantos@gmail', 'ATECUBANOS1234', 'editor'),
-(4, 'Goku', 'kakaroto@gmail', 'BULMAS4F4D4', 'editor');
+(1, 'Tiago', 'tiago@gmail.com', '123senac', 'admin'),
+(2, 'Chapolin', 'chapolin@gmail', '456', 'editor'),
+(4, 'Naruto', 'naruto@gmail.com', '000', 'editor');
 
 --
 -- Índices para tabelas despejadas
@@ -96,7 +95,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

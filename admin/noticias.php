@@ -2,20 +2,20 @@
 require "../includes/cabecalho-admin.php";
 require "../includes/funcoes-noticias.php";
 
-// Pegando ID e o tipo de usuario que esta logado na sessao
+// Pegando o id e o tipo do usuário que está logado na sessão
 $idUsuario = $_SESSION['id'];
 $tipoUsuario = $_SESSION['tipo'];
 
-// Chamando a função e pegando o array com lista de noticias
+// Chamando a função e pegando o array com a lista de notícias
 $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 ?>
-
 
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Notícias <span class="badge bg-dark"><?=count($listaDeNoticias)?> </span>
+		Notícias <span class="badge bg-dark"> 
+			<?=count($listaDeNoticias)?> </span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -31,15 +31,17 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 					<tr>
                         <th>Título</th>
                         <th>Data</th>
+
 						<?php if($tipoUsuario === 'admin'){ ?>
                         <th>Autor</th>
 						<?php } ?>
+
 						<th class="text-center">Operações</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<?php foreach( $listaDeNoticias as $noticia ) { ?>
+<?php foreach( $listaDeNoticias as $noticia ) { ?>
 					<tr>
                         <td> <?=$noticia['titulo']?> </td>
                         <td> <?=formataData($noticia['data'])?> </td>
@@ -58,7 +60,7 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 							</a>
 						</td>
 					</tr>
-				<?php } ?>
+<?php } ?>
 				</tbody>                
 			</table>
 	</div>

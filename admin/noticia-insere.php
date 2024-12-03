@@ -2,25 +2,26 @@
 require "../includes/cabecalho-admin.php";
 require "../includes/funcoes-noticias.php";
 
-if (isset($_POST['inserir'])){
+if(isset($_POST['inserir'])){
 	$titulo = $_POST['titulo'];
 	$texto = $_POST['texto'];
 	$resumo = $_POST['resumo'];
 
-	// Capturando o id do usuario que esta logado na sessão
+	// Capturando o id do usuário que está logado na sessão
 	$usuarioId = $_SESSION['id'];
 
 	// Capturando os dados da imagem que será enviada
-	$imagem = $_FILES['imagem']; // Isso acessa o campo imagem do formulario
+	$imagem = $_FILES['imagem']; // Isso acessa o campo imagem do form.
 
-	// Fazendo upload da imagem para o servidor
+	// Fazendo o upload da imagem para o servidor
 	upload($imagem);
 
+	// Enviar os dados para o banco de dados
 	inserirNoticia(
 		$conexao, $titulo, $texto, $resumo, $imagem['name'], $usuarioId);
 
-		// Redirecionando para a pagina de noticias.php
-		header("location:noticias.php");
+	// Redirecionando para a página de noticias.php
+	header("location:noticias.php");
 }
 ?>
 

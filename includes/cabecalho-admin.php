@@ -2,9 +2,9 @@
 require "funcoes-controle-de-acesso.php";
 verificarAcesso();
 
-// Se existir parametro sair
+/* Se existir o parâmetro sair... */
 if(isset($_GET['sair'])){
-    // Executar a função logout para sair da area adm
+    // Executamos a função logout para sair da área administrativa
     logout();
 }
 
@@ -45,11 +45,13 @@ $pagina = basename($_SERVER['PHP_SELF']);
             <li class="nav-item">
                 <a class="nav-link" href="meu-perfil.php">Meu perfil</a>
             </li>
-            <?php if ($_SESSION['tipo'] === 'admin') { ?>         
+          
+<?php if($_SESSION['tipo'] === 'admin') { ?>            
             <li class="nav-item">
                 <a class="nav-link" href="usuarios.php">Usuários</a>
             </li>
-            <?php } ?>
+<?php } ?>            
+            
             <li class="nav-item">
                 <a class="nav-link" href="noticias.php">Notícias</a>
             </li>

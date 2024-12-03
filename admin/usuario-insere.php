@@ -4,21 +4,21 @@ require "../includes/funcoes-usuarios.php";
 
 verificarNivel();
 
+// Se o botão inserir do formulário for acionado
 if(isset($_POST['inserir'])){
 	// Capturar os dados digitados
 	$nome = $_POST['nome'];
 	$email = $_POST['email'];
-    $tipo = $_POST['tipo'];
+	$tipo = $_POST['tipo'];
 
-	// Capturando a senha e a codificando 
-	$senha = password_hash( $_POST['senha'], PASSWORD_DEFAULT);
-	
+	// Capturando a senha e a codificando
+	$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+
 	// Executando a função inserirUsuario
-	inserirUsuario($conexao, $nome, $email, $senha, $tipo);
+	inserirUsuario($conexao,  $nome, $email, $senha, $tipo);
 
 	// Redirecionamento
 	header("location:usuarios.php");
-	
 }
 ?>
 

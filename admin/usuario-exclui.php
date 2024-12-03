@@ -1,14 +1,15 @@
 <?php
-require "../includes/funcoes-usuarios.php";
+require "../includes/funcoes-controle-de-acesso.php";
 verificarAcesso();
 verificarNivel();
+
 require "../includes/funcoes-usuarios.php";
 
-// Pegando o ID passado via URL
+// Pegando o id passado via URL
 $id = $_GET['id'];
 
-// Chamando a função de excluir passando o ID do usuario
+// Chamando a função de excluir passando o id do usuário
 excluirUsuario($conexao, $id);
 
-// Redirecionamento para a página com todos os usuarios
+// Redirecionando para a página com todos os usuarios
 header("location:usuarios.php");
